@@ -12,6 +12,20 @@ interface HeaderProps {
 }
 
 export default function Header({ showSearch = false, query = '' }: HeaderProps) {
+  const closeAllDropdowns = () => {
+    document.getElementById('forkDropdown')?.classList.add('hidden');
+    document.getElementById('starDropdown')?.classList.add('hidden');
+  };
+
+  const toggleDropdown = (dropdownId: string) => {
+    if (document.getElementById(dropdownId)?.classList.contains('hidden')) {
+      closeAllDropdowns();
+      document.getElementById(dropdownId)?.classList.remove('hidden');
+    } else {
+      document.getElementById(dropdownId)?.classList.add('hidden');
+    }
+  };
+
   return (
     <header className="bg-white border-b border-[var(--border)] px-[24px] py-[12px]">
       <div className="mx-auto flex items-center justify-between">
@@ -38,26 +52,38 @@ export default function Header({ showSearch = false, query = '' }: HeaderProps) 
           </div>
         ) : null}
         <div className='flex flex-row gap-2'>
-          <Button 
-            onClick={() => {
-              window.open('https://github.com/abdibrokhim/notgrep', '_blank');
-            }}
-            variant="outline"
-            className='shrink-0'
-          >
-            <GitFork className="w-3 h-3 mr-2" />
-            <span>Fork</span>
-          </Button>
-          <Button 
-            onClick={() => {
-              window.open('https://github.com/abdibrokhim/notgrep', '_blank');
-            }}
-            variant="outline"
-            className='shrink-0'
-          >
-            <LucideStars className="w-3 h-3 mr-2" />
-            <span>Star</span>
-          </Button>
+          <div className="relative">
+            <Button 
+              onClick={() => toggleDropdown('forkDropdown')}
+              variant="outline"
+              className='shrink-0'
+            >
+              <GitFork className="w-3 h-3 mr-2" />
+              <span>Fork</span>
+            </Button>
+            <div id="forkDropdown" className="hidden absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+              <div className="p-2">
+                <a href="https://github.com/abdibrokhim/notgrep/fork" target="_blank" rel="noreferrer" className="block px-4 py-2 text-sm text-[var(--text-a)] hover:bg-[var(--input)] hover:rounded-md transition duration-200">notgrep</a>
+                <a href="https://github.com/abdibrokhim/notgrep-ui/fork" target="_blank" rel="noreferrer" className="block px-4 py-2 text-sm text-[var(--text-a)] hover:bg-[var(--input)] hover:rounded-md transition duration-200">notgrep-ui</a>
+              </div>
+            </div>
+          </div>
+          <div className="relative">
+            <Button 
+              onClick={() => toggleDropdown('starDropdown')}
+              variant="outline"
+              className='shrink-0'
+            >
+              <LucideStars className="w-3 h-3 mr-2" />
+              <span>Star</span>
+            </Button>
+            <div id="starDropdown" className="hidden absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+              <div className="p-2">
+                <a href="https://github.com/abdibrokhim/notgrep/" target="_blank" rel="noreferrer" className="block px-4 py-2 text-sm text-[var(--text-a)] hover:bg-[var(--input)] hover:rounded-md transition duration-200">notgrep</a>
+                <a href="https://github.com/abdibrokhim/notgrep-ui/" target="_blank" rel="noreferrer" className="block px-4 py-2 text-sm text-[var(--text-a)] hover:bg-[var(--input)] hover:rounded-md transition duration-200">notgrep-ui</a>
+              </div>
+            </div>
+          </div>
           <Button 
             onClick={() => {
               const text = "this guy is cracked @abdibrokhim. pure cooker at imcook.in , akshfil..uwdbjs";
