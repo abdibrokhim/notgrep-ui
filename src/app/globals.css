@@ -3,19 +3,56 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --white: #FFFFFF;
+  --black: #171717;
+  --text-a: #000000D9;
+  --text-b: #171717;
+  --text-c: #666666;
+  --text-d: #262626;
+  --bg-highlight: #CDE7FF;
+  --border: #eaeaea;
+  --input: #f2f2f2;
+  --accent: #ebebeb;
+  --light-bg: #fafafa;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --white: #FFFFFF;
+    --black: #171717;
+    --text-a: #000000D9;
+    --text-b: #171717;
+    --text-c: #666666;
+    --text-d: #262626;
+    --bg-highlight: #CDE7FF;
+    --border: #eaeaea;
+    --input: #f2f2f2;
+    --accent: #ebebeb;
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--black);
+  background: var(--white);
   font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  font-size: 14px;
+  overflow-y: hidden;
+}
+
+::selection {
+  color: var(--white);
+  background: var(--black);
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.no-drag {
+  user-select: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
