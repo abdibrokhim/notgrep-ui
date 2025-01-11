@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import Layout from '../components/Layout';
 import { useSearchParams } from 'next/navigation';
 import { ChevronDown, Share, X } from 'lucide-react';
@@ -30,16 +30,16 @@ interface SearchResult {
   total_matches: number;
 }
 
-export default function SearchResults() {
+function SearchResultsContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
-  const [searchResults, setSearchResults] = useState<SearchResult | null>(null);
-  const [selectedRepo, setSelectedRepo] = useState<string | null>(null);
-  const [fullCodeVisible, setFullCodeVisible] = useState(false);
-  const [repoListVisible, setRepoListVisible] = useState(true);
-  const [pathListVisible, setPathListVisible] = useState(true);
+  const [searchResults, setSearchResults] = React.useState<SearchResult | null>(null);
+  const [selectedRepo, setSelectedRepo] = React.useState<string | null>(null);
+  const [fullCodeVisible, setFullCodeVisible] = React.useState(false);
+  const [repoListVisible, setRepoListVisible] = React.useState(true);
+  const [pathListVisible, setPathListVisible] = React.useState(true);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const fetchResults = async () => {
       const response = await fetch(`/api/search?q=${query}`);
       const data = await response.json();
@@ -247,5 +247,13 @@ export default function SearchResults() {
         </div>
       )}
     </Layout>
+  );
+}
+
+export default function SearchResults() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchResultsContent />
+    </Suspense>
   );
 }
