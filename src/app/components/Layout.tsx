@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
@@ -49,7 +51,7 @@ export default function Layout({ children }: LayoutProps) {
   }, []);
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen font-[family-name:var(--font-geist-sans)]">
       <Header 
         showSearch={showSearch}
         query={query}

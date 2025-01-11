@@ -51,7 +51,7 @@ export default function SearchResults() {
   }, [query]);
 
   if (!searchResults) {
-    return <div>Loading...</div>;
+    return <div className='flex flex-col items-center justify-center mx-auto'>loading...</div>;
   }
 
   return (
