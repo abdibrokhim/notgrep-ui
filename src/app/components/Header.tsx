@@ -59,12 +59,12 @@ export default function Header({ showSearch = false, query = '' }: HeaderProps) 
               className='shrink-0'
             >
               <GitFork className="w-3 h-3 mr-2" />
-              <span>Fork</span>
+              <span className='text-[14px]'>Fork</span>
             </Button>
-            <div id="forkDropdown" className="hidden absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+            <div id="forkDropdown" className="hidden absolute right-0 mt-2 w-28 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
               <div className="p-2">
-                <a href="https://github.com/abdibrokhim/notgrep/fork" target="_blank" rel="noreferrer" className="block px-4 py-2 text-sm text-[var(--text-a)] hover:bg-[var(--input)] hover:rounded-md transition duration-200">notgrep</a>
-                <a href="https://github.com/abdibrokhim/notgrep-ui/fork" target="_blank" rel="noreferrer" className="block px-4 py-2 text-sm text-[var(--text-a)] hover:bg-[var(--input)] hover:rounded-md transition duration-200">notgrep-ui</a>
+                <a href="https://github.com/abdibrokhim/notgrep/fork" target="_blank" rel="noreferrer" className="block px-4 py-2 text-[13px] text-[var(--text-a)] hover:bg-[var(--input)] hover:rounded-md transition duration-200">notgrep</a>
+                <a href="https://github.com/abdibrokhim/notgrep-ui/fork" target="_blank" rel="noreferrer" className="block px-4 py-2 text-[13px] text-[var(--text-a)] hover:bg-[var(--input)] hover:rounded-md transition duration-200">notgrep-ui</a>
               </div>
             </div>
           </div>
@@ -75,25 +75,25 @@ export default function Header({ showSearch = false, query = '' }: HeaderProps) 
               className='shrink-0'
             >
               <LucideStars className="w-3 h-3 mr-2" />
-              <span>Star</span>
+              <span className='text-[14px]'>Star</span>
             </Button>
-            <div id="starDropdown" className="hidden absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+            <div id="starDropdown" className="hidden absolute right-0 mt-2 w-28 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
               <div className="p-2">
-                <a href="https://github.com/abdibrokhim/notgrep/" target="_blank" rel="noreferrer" className="block px-4 py-2 text-sm text-[var(--text-a)] hover:bg-[var(--input)] hover:rounded-md transition duration-200">notgrep</a>
-                <a href="https://github.com/abdibrokhim/notgrep-ui/" target="_blank" rel="noreferrer" className="block px-4 py-2 text-sm text-[var(--text-a)] hover:bg-[var(--input)] hover:rounded-md transition duration-200">notgrep-ui</a>
+                <a href="https://github.com/abdibrokhim/notgrep/" target="_blank" rel="noreferrer" className="block px-4 py-2 text-[13px] text-[var(--text-a)] hover:bg-[var(--input)] hover:rounded-md transition duration-200">notgrep</a>
+                <a href="https://github.com/abdibrokhim/notgrep-ui/" target="_blank" rel="noreferrer" className="block px-4 py-2 text-[13px] text-[var(--text-a)] hover:bg-[var(--input)] hover:rounded-md transition duration-200">notgrep-ui</a>
               </div>
             </div>
           </div>
           <Button 
             onClick={() => {
-              const text = "this guy is cracked @abdibrokhim. pure cooker at imcook.in , akshfil..uwdbjs";
-              window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank');
+              const text = "this guy is cracked @abdibrokhim. pure cooker at imcook.in, try now notgrep.app";
+              window.open(`https://x.com/intent/post?text=${encodeURIComponent(text)}`, '_blank');
             }}
             variant="outline"
             className='shrink-0'
           >
             <Share className="w-3 h-3 mr-2" />
-            <span>Share</span>
+            <span className='text-[14px]'>Share</span>
           </Button>
         </div>
       </div>
